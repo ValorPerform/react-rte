@@ -67,10 +67,8 @@ export default class EditorToolbar extends Component {
 
   render() {
     let {className, toolbarConfig, rootStyle} = this.props;
-    if (toolbarConfig == null) {
-      toolbarConfig = DefaultToolbarConfig;
-    }
-    let display = toolbarConfig.display || DefaultToolbarConfig.display;
+    toolbarConfig = Object.assign(DefaultToolbarConfig, toolbarConfig)
+    let display = toolbarConfig.display
     let buttonGroups = display.map((groupName) => {
       switch (groupName) {
         case 'INLINE_STYLE_BUTTONS': {
